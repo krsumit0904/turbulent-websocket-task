@@ -4,6 +4,7 @@ import logger from './lib/logger'
 import initExpress from './lib/express'
 
 import { config } from './config/app'
+import { initWebsocket } from './services'
 
 require('babel-core/register')
 require('babel-polyfill')
@@ -14,6 +15,8 @@ const initApp = async () => {
   try {
     const app = await initExpress()
     const server = http.createServer(app)
+
+    initWebsocket(server)
 
     server.listen(port, () => {
       logger.info(`Server started on port ${port}:`)
