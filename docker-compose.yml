@@ -14,3 +14,20 @@ services:
     volumes:
       - ./:/opt
     restart: always
+
+  unit-tests:
+    build:
+      context: .
+      args:
+        - NODE_ENV=test
+    command: ['make', 'test']
+    env_file:
+      - ./.env
+    environment:
+      NODE_ENV: test
+      DB_NAME: turbulent_test
+    ports:
+      - 9001:9229
+    volumes:
+      - ./:/opt:delegated
+    restart: always

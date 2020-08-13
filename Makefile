@@ -10,3 +10,6 @@ killstart:
 
 dev_server: check-install-deps
 	npx concurrently --names "SERVER,LINT" -c "bgBlue.bold,bgMagenta.bold" "npx nodemon --exec 'make killstart'" "npx nodemon --exec 'make lint'"
+
+test: check-install-deps
+	npm test
