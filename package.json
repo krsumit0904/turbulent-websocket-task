@@ -1,0 +1,15 @@
+{
+  "name": "turbulent_websocket-task",
+  "version": "1.0.0",
+  "description": "Turbulent Websocket task",
+  "main": "dist/index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "check-dependencies": "^1.1.0",
+  },
+  "devDependencies": {
+  }
+}
