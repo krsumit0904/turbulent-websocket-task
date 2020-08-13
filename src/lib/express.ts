@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 
 import Responder from './expressResponder'
+import { initRoutes } from './../routes'
 
 const app = express()
 
@@ -36,6 +37,8 @@ const initExpress = () => {
   initMiddleware()
 
   initPingURL()
+
+  initRoutes(app)
 
   catchNotFound()
 
