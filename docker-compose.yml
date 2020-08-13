@@ -9,6 +9,8 @@ services:
     command: ['make', 'dev_server']
     ports:
       - 3000:3000
+    env_file:
+      - ./.env
     volumes:
       - ./:/opt
     restart: always
