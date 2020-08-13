@@ -1,5 +1,6 @@
 import * as http from 'http'
 
+import models from './models'
 import logger from './lib/logger'
 import initExpress from './lib/express'
 
@@ -15,6 +16,8 @@ const initApp = async () => {
   try {
     const app = await initExpress()
     const server = http.createServer(app)
+
+    await models.sequelize.sync()
 
     initWebsocket(server)
 
