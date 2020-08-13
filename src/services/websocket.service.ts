@@ -15,6 +15,14 @@ export const initWebsocket = (server: any) => {
       ws.isAlive = true
     })
 
+    ws.on('message', (message: string) => {
+      try {
+        broadcast(message)
+      } catch (error) {
+        console.log(`Something went wrong: ${error.message}`)
+      }
+    })
+
     ws.send('WebSocket server exposed')
   })
 
@@ -30,4 +38,11 @@ const handleClients = () => {
       ws.ping(null, false)
     })
   }, 10000)
+}
+
+const broadcast = (message: string) => {
+  wss.clients
+    .forEach((client: any) => {
+      client.send(message)
+    })
 }
