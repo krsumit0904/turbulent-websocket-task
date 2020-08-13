@@ -6,6 +6,7 @@ import initExpress from './lib/express'
 
 import { config } from './config/app'
 import { initWebsocket } from './services'
+import { initCronJobs } from './jobs'
 
 require('babel-core/register')
 require('babel-polyfill')
@@ -20,6 +21,8 @@ const initApp = async () => {
     await models.sequelize.sync()
 
     initWebsocket(server)
+
+    initCronJobs()
 
     server.listen(port, () => {
       logger.info(`Server started on port ${port}:`)

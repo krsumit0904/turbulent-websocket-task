@@ -46,3 +46,11 @@ const broadcast = (message: string) => {
       client.send(message)
     })
 }
+
+export const triggerEvent = (name: string) => {
+  const ws = new WebSocket(url)
+
+  ws.onopen = () => {
+    ws.send(JSON.stringify({ event: name }))
+  }
+}

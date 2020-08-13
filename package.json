@@ -1,5 +1,5 @@
 {
-  "name": "turbulent_websocket-task",
+  "name": "turbulent-websocket-task",
   "version": "1.0.0",
   "description": "Turbulent Websocket task",
   "main": "dist/index.js",
@@ -13,11 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cron": "^1.7.2",
     "ajv": "^6.12.3",
     "body-parser": "^1.19.0",
     "check-dependencies": "^1.1.0",
     "convict": "^6.0.0",
     "cors": "^2.8.5",
+    "cron": "^1.8.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "lodash": "^4.17.19",

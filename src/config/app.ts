@@ -70,6 +70,14 @@ export const config = convict({
       env: 'DB_LOGGING',
       sensitive: true,
     }
+  },
+  cron: {
+    eventTimePattern: {
+      doc: 'Time pattern for event cron job',
+      format: String,
+      default: '* * * * * *',
+      env: 'EVENT_CRON_PATTERN'
+    },
   }
 })
 
